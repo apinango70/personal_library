@@ -1,6 +1,8 @@
 class BooksController < ApplicationController
   before_action :set_book, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_user, only: [:create]
+  
   # GET /books or /books.json
   def index
     @books = Book.all
@@ -22,6 +24,7 @@ class BooksController < ApplicationController
   # POST /books or /books.json
   def create
     @book = Book.new(book_params)
+    @book.user = @user
 
     respond_to do |format|
       if @book.save
@@ -67,4 +70,10 @@ class BooksController < ApplicationController
     def book_params
       params.require(:book).permit(:title, :publication_year, :isbn, :description, :user_id)
     end
+
+    def set_user
+      @user = current_user  
+    end
+
+    
 end
