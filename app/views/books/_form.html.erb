@@ -13,22 +13,22 @@
 
   <div>
     <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, required: true %>
   </div>
 
   <div>
     <%= form.label :publication_year, style: "display: block" %>
-    <%= form.date_field :publication_year %>
+    <%= form.date_field :publication_year, required: true %>
   </div>
 
   <div>
     <%= form.label :isbn, style: "display: block" %>
-    <%= form.text_field :isbn %>
+    <%= form.text_field :isbn, required: true %>
   </div>
 
   <div>
     <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, required: true %>
   </div>
 
 
