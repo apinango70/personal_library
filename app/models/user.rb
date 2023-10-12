@@ -12,4 +12,8 @@ class User < ApplicationRecord
   # Validaciones
   validates :username, presence: { message: "Username field cannot be blank" }, uniqueness: { message: "Username is already in use" }
 
+  #relaciones
+    # Defino una foto al usuario
+    has_one_attached :photo
+    
 end
