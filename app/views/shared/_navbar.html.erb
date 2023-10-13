@@ -9,11 +9,20 @@
         <li class="nav-item">
           <%= link_to "Home", root_path, class: 'nav-link' %>
         </li>
-        <li class="nav-item">
-          <% if user_signed_in? && current_user.admin? %>
-            <%= link_to 'Edit profile', edit_user_registration_path, class: 'nav-link' %>  
-          <% end %>
-        </li>
+        <% if user_signed_in? && current_user.admin? %>
+          <li class="nav-item">
+              <%= link_to 'Edit profile', edit_user_registration_path, class: 'nav-link' %>  
+          </li>
+          <li class="nav-item">
+              <%= link_to 'New book', new_book_path, class: 'nav-link' %>  
+          </li>
+          <li class="nav-item">
+              <%= link_to 'New author', new_author_path, class: 'nav-link' %>  
+          </li>
+          <li class="nav-item">
+              <%= link_to 'New publisher', new_publisher_path, class: 'nav-link' %>  
+          </li>
+        <% end %>
       </ul>
       <ul class="navbar-nav ">
       <% if user_signed_in? %>
